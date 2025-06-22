@@ -1,0 +1,58 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="4">
+                <input type="text" id="inputBox" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td onclick="digitbtnPressed('7')">7</td>
+            <td onclick="digitbtnPressed('8')">8</td>
+            <td onclick="digitbtnPressed('9')">9</td>
+            <td onclick="digitbtnPressed('*')">*</td>
+        </tr>
+        <tr>
+            <td onclick="digitbtnPressed('4')">4</td>
+            <td onclick="digitbtnPressed('5')">5</td>
+            <td onclick="digitbtnPressed('6')">6</td>
+            <td onclick="digitbtnPressed('-')">-</td>
+        </tr>
+        <tr>
+            <td onclick="digitbtnPressed('1')">1</td>
+            <td onclick="digitbtnPressed('2')">2</td>
+            <td onclick="digitbtnPressed('3')">3</td>
+            <td onclick="digitbtnPressed('+')">+</td>
+        </tr>
+        <tr>
+            <td colspan="2" onclick="digitbtnPressed('0')">0</td>
+            <td onclick="digitbtnPressed('AC')">AC</td>
+            <td onclick="digitbtnPressed('/')">/</td>
+        </tr>
+        <tr>
+            <td colspan="4" onclick="digitbtnPressed('=')">=</td>
+        </tr>
+    </table>
+    <script>
+        var newLine = true;
+
+        function digitbtnPressed(button) {
+            if (button === 'AC') {
+                document.getElementById("inputBox").value = "0";
+                newLine = true;
+                return;
+            }
+            if (newLine) {
+                document.getElementById("inputBox").value = button;
+                newLine = false;
+            } else {
+                var currentValue = document.getElementById("inputBox").value;
+                document.getElementById("inputBox").value = currentValue + button;
+            }
+        }
+    </script>
+</body>
+</html>
